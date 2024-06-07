@@ -119,7 +119,7 @@ canvas.create_window((100, 700), window=frame_s_re1, anchor='nw')
 ifsr1 = Image.open("Imagenes/ninos-nike-dunk-low-year-of-the-dragon-sp24-fz5528-101-hype-1_360x.jpg")
 ifsr1r = ifsr1.resize((220,320))
 ifsr1I = ImageTk.PhotoImage(ifsr1r)
-bfsr1 = tk.Button(frame_s_re1, image=ifsr1I, bd=0, highlightthickness=0)
+bfsr1 = tk.Button(frame_s_re1, image=ifsr1I, bd=0, highlightthickness=0, command=lambda: abrir_ventana_detalle('NIKE DUNK LOW YEAR OF THE DRAGON', 'Imagenes/ninos-nike-dunk-low-year-of-the-dragon-sp24-fz5528-101-hype-1_360x.jpg', '$120', ['7', '8', '9', '10', '11']))
 bfsr1.pack()
 
 frame_tsr1 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
@@ -128,6 +128,31 @@ tsr1 = Label(frame_tsr1, text="NIKE DUNK LOW YEAR OF THE \nDRAGON", fg='black')
 tsr1.pack() 
 tsr1.config(**estiloti)
 
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle(nombre, imagen_path, precio, tallas):
+    ventana_detalle = Toplevel(ventana)
+    ventana_detalle.title(nombre)
+    ventana_detalle.geometry("600x800")
+    
+    # Mostrar imagen del zapato
+    imagen = Image.open(imagen_path)
+    imagen_resized = imagen.resize((400, 400))
+    imagen_tk = ImageTk.PhotoImage(imagen_resized)
+    etiqueta_imagen = Label(ventana_detalle, image=imagen_tk)
+    etiqueta_imagen.image = imagen_tk
+    etiqueta_imagen.pack(pady=10)
+    
+    # Mostrar precio
+    etiqueta_precio = Label(ventana_detalle, text=f"Precio: {precio}", font=('Roboto', 16, 'bold'))
+    etiqueta_precio.pack(pady=10)
+    
+    # Mostrar tallas disponibles
+    etiqueta_tallas = Label(ventana_detalle, text="Tallas disponibles:", font=('Roboto', 14))
+    etiqueta_tallas.pack(pady=5)
+    
+    for talla in tallas:
+        etiqueta_talla = Label(ventana_detalle, text=talla, font=('Roboto', 12))
+        etiqueta_talla.pack(pady=2)
 
 frame_s_re2 = customtkinter.CTkFrame(canvas, width=220, height=320, bg_color="white", corner_radius=5)
 canvas.create_window((411, 700), window=frame_s_re2, anchor='nw')
@@ -137,6 +162,37 @@ ifsr2r = ifsr2.resize((220,320))
 ifsr2I = ImageTk.PhotoImage(ifsr2r)
 bfsr2 = tk.Button(frame_s_re2, image=ifsr2I, bd=0, highlightthickness=0)
 bfsr2.pack()
+def abrir_ventana_detalle_mujer():
+    nombre = "Nike Air More Uptempo Pink Foam - Mujer"
+    imagen_path = "Imagenes/mujer-nike-air-more-uptempo-pink-foam-dv1137-600-hype-1_360x.jpg"
+    precio = "$150"
+    tallas = ['5', '6', '7', '8', '9']
+    
+    ventana_detalle = Toplevel(ventana)
+    ventana_detalle.title(nombre)
+    ventana_detalle.geometry("600x800")
+    
+    # Mostrar imagen del zapato
+    imagen = Image.open(imagen_path)
+    imagen_resized = imagen.resize((400, 400))
+    imagen_tk = ImageTk.PhotoImage(imagen_resized)
+    etiqueta_imagen = Label(ventana_detalle, image=imagen_tk)
+    etiqueta_imagen.image = imagen_tk
+    etiqueta_imagen.pack(pady=10)
+    
+    # Mostrar precio
+    etiqueta_precio = Label(ventana_detalle, text=f"Precio: {precio}", font=('Roboto', 16, 'bold'))
+    etiqueta_precio.pack(pady=10)
+    
+    # Mostrar tallas disponibles
+    etiqueta_tallas = Label(ventana_detalle, text="Tallas disponibles:", font=('Roboto', 14))
+    etiqueta_tallas.pack(pady=5)
+    
+    for talla in tallas:
+        etiqueta_talla = Label(ventana_detalle, text=talla, font=('Roboto', 12))
+        etiqueta_talla.pack(pady=2)
+boton_bfsr2 = Button(master=frame_s_re2, text='', bg='white', bd=0, highlightthickness=0, command=abrir_ventana_detalle_mujer)
+boton_bfsr2.place(relwidth=1, relheight=1)
 
 frame_tsr2 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
 canvas.create_window((411, 1030), window=frame_tsr2, anchor='nw')
@@ -152,6 +208,24 @@ ifsr3 = Image.open("Imagenes/kobe-8-protro-venice-beach-fq3548-001-hype-1.jpg")
 ifsr3r = ifsr3.resize((220,320))
 ifsr3I = ImageTk.PhotoImage(ifsr3r)
 bfsr3 = tk.Button(frame_s_re3, image=ifsr3I, bd=0, highlightthickness=0)
+bfsr3.pack()
+
+frame_tsr3 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+canvas.create_window((717, 1030), window=frame_tsr3, anchor='nw')
+tsr3 = Label(frame_tsr3, text="NIKE KOBE 8 PROTRO VENICE \nBEACH", fg='black')
+tsr3.pack()
+tsr3.config(**estiloti)
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle_kobe():
+    abrir_ventana_detalle('NIKE KOBE 8 PROTRO VENICE BEACH', 'Imagenes/kobe-8-protro-venice-beach-fq3548-001-hype-1.jpg', '$180', ['6', '7', '8', '9', '10'])
+
+frame_s_re3 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
+canvas.create_window((717, 700), window=frame_s_re3, anchor='nw')
+
+ifsr3 = Image.open("Imagenes/kobe-8-protro-venice-beach-fq3548-001-hype-1.jpg")
+ifsr3r = ifsr3.resize((220,320))
+ifsr3I = ImageTk.PhotoImage(ifsr3r)
+bfsr3 = tk.Button(frame_s_re3, image=ifsr3I, bd=0, highlightthickness=0, command=abrir_ventana_detalle_kobe)
 bfsr3.pack()
 
 frame_tsr3 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
@@ -175,6 +249,24 @@ canvas.create_window((1026, 1026), window=frame_tsr4, anchor='nw')
 tsr4 = Label(frame_tsr4, text="NIKE AIR MAX PLUS 3 BLACK \nWOLF GREY", fg='black')
 tsr4.pack() 
 tsr4.config(**estiloti)
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle_air_max_plus():
+    abrir_ventana_detalle('NIKE AIR MAX PLUS 3 BLACK WOLF GREY', 'Imagenes/nike-air-max-plus-3-black-wolf-grey-ho23-cj9684-002-hype-1_360x.jpg', '$160', ['6', '7', '8', '9', '10'])
+
+frame_s_re4 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
+canvas.create_window((1026, 700), window=frame_s_re4, anchor='nw')
+
+ifsr4 = Image.open("Imagenes/nike-air-max-plus-3-black-wolf-grey-ho23-cj9684-002-hype-1_360x.jpg")
+ifsr4r = ifsr4.resize((220,320))
+ifsr4I = ImageTk.PhotoImage(ifsr4r)
+bfsr4 = tk.Button(frame_s_re4, image=ifsr4I, bd=0, highlightthickness=0, command=abrir_ventana_detalle_air_max_plus)
+bfsr4.pack()
+
+frame_tsr4 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+canvas.create_window((1026, 1026), window=frame_tsr4, anchor='nw')
+tsr4 = Label(frame_tsr4, text="NIKE AIR MAX PLUS 3 BLACK WOLF GREY", fg='black')
+tsr4.pack() 
+tsr4.config(**estiloti)
 
 
 frame_s_re5 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
@@ -189,6 +281,24 @@ bfsr5.pack()
 frame_tsr5 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
 canvas.create_window((100, 1440), window=frame_tsr5, anchor='nw')
 tsr5 = Label(frame_tsr5, text="NIKE AIR MAX PLUS DRIFT \nALL DAY", fg='black')
+tsr5.pack() 
+tsr5.config(**estiloti)
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle_air_max_plus_drift():
+    abrir_ventana_detalle('NIKE AIR MAX PLUS DRIFT ALL DAY', 'Imagenes/nike-air-max-plus-drift-all-day-fd4290-003-hype-1_360x.jpg', '$140', ['7', '8', '9', '10', '11'])
+
+frame_s_re5 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
+canvas.create_window((100, 1110), window=frame_s_re5, anchor='nw')
+
+ifsr5 = Image.open("Imagenes/nike-air-max-plus-drift-all-day-fd4290-003-hype-1_360x.jpg")
+ifsr5r = ifsr5.resize((220,320))
+ifsr5I = ImageTk.PhotoImage(ifsr5r)
+bfsr5 = tk.Button(frame_s_re5, image=ifsr5I, bd=0, highlightthickness=0, command=abrir_ventana_detalle_air_max_plus_drift)
+bfsr5.pack()
+
+frame_tsr5 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+canvas.create_window((100, 1440), window=frame_tsr5, anchor='nw')
+tsr5 = Label(frame_tsr5, text="NIKE AIR MAX PLUS DRIFT ALL DAY", fg='black')
 tsr5.pack() 
 tsr5.config(**estiloti)
 
@@ -223,6 +333,25 @@ canvas.create_window((711, 1440), window=frame_tsr7, anchor='nw')
 tsr7 = Label(frame_tsr7, text="JORDAN 2 RETO SAILL BLACK \n- MUJER", fg='black')
 tsr7.pack()
 tsr7.config(**estiloti)
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle_jordan_2_retro_sail_black():
+    abrir_ventana_detalle('JORDAN 2 RETRO SAIL BLACK - MUJER', 'Imagenes/mujer-jordan-2-retro-sail-black-sp24-dx4400-100-hype-1_360x.jpg', '$180', ['6', '7', '8', '9', '10'])
+
+frame_s_re7 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
+canvas.create_window((717, 1110), window=frame_s_re7, anchor='nw')
+
+ifsr7 = Image.open("Imagenes/mujer-jordan-2-retro-sail-black-sp24-dx4400-100-hype-1_360x.jpg")
+ifsr7r = ifsr7.resize((220,320))
+ifsr7I = ImageTk.PhotoImage(ifsr7r)
+bfsr7 = tk.Button(frame_s_re7, image=ifsr7I, bd=0, highlightthickness=0, command=abrir_ventana_detalle_jordan_2_retro_sail_black)
+bfsr7.pack()
+
+frame_tsr7 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+canvas.create_window((711, 1440), window=frame_tsr7, anchor='nw')
+tsr7 = Label(frame_tsr7, text="JORDAN 2 RETRO SAILL BLACK - MUJER", fg='black')
+tsr7.pack()
+tsr7.config(**estiloti)
+
 
 
 frame_s_re8 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
@@ -235,6 +364,25 @@ bfsr8 = tk.Button(frame_s_re8, image=ifsr8I, bd=0, highlightthickness=0)
 bfsr8.pack()
 
 frame_tsr8 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+# Función para abrir la ventana de detalles del producto
+def abrir_ventana_detalle_jordan_spizike_low_sail():
+    abrir_ventana_detalle('JORDAN SPIZIKE LOW SAIL', 'Imagenes/jordan-spizike-low-sail-fq1759-100-hype-1.jpg', '$150', ['6', '7', '8', '9', '10'])
+
+frame_s_re8 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="white", corner_radius=5)
+canvas.create_window((1026, 1110), window=frame_s_re8, anchor='nw')
+
+ifsr8 = Image.open("Imagenes/jordan-spizike-low-sail-fq1759-100-hype-1.jpg")
+ifsr8r = ifsr8.resize((220,320))
+ifsr8I = ImageTk.PhotoImage(ifsr8r)
+bfsr8 = tk.Button(frame_s_re8, image=ifsr8I, bd=0, highlightthickness=0, command=abrir_ventana_detalle_jordan_spizike_low_sail)
+bfsr8.pack()
+
+frame_tsr8 = Frame(canvas, width=10, height=10, bg="white", highlightthickness=0)
+canvas.create_window((1026, 1440), window=frame_tsr8, anchor='nw')
+tsr8 = Label(frame_tsr8, text="JORDAN SPIZIKE LOW SAIL", fg='black')
+tsr8.pack() 
+tsr8.config(**estiloti)
+
 canvas.create_window((1026, 1440), window=frame_tsr8, anchor='nw')
 tsr8 = Label(frame_tsr8, text="JORDAN SPIZIKE LOW SAIL", fg='black')
 tsr8.pack() 
@@ -317,16 +465,125 @@ frame_s_d8 = customtkinter.CTkFrame(canvas, width=234, height=419, bg_color="whi
 canvas.create_window((1026, 2919), window=frame_s_d8, anchor='nw')
 
 #Boton ver todo
-bvtd= customtkinter.CTkButton(canvas, text='Ver Todo', bg_color="white", corner_radius=0)
+bvtd= customtkinter.CTkButton(canvas, text='Ver Todo', bg_color="white", corner_radius=0, command=open("Untitled-1.py"))
 canvas.create_window((610, 3400), window=bvtd, anchor='nw')
+# Función para abrir todas las ventanas de detalles de productos en una sola ventana
+def abrir_todas_ventanas_detalles():
+    # Crear una nueva ventana para mostrar todas las interfaces de detalle
+    ventana_todas = Toplevel(ventana)
+    ventana_todas.title("Detalles de Productos")
+    ventana_todas.geometry("800x1000")
 
+    # Funciones para abrir cada interfaz de detalle y colocarlas en la nueva ventana
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE DUNK LOW YEAR OF THE DRAGON', 'Imagenes/ninos-nike-dunk-low-year-of-the-dragon-sp24-fz5528-101-hype-1_360x.jpg', '$120', ['7', '8', '9', '10', '11'], 0)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE MORE UPTEMPO PINK FOAM - MUJER', 'Imagenes/mujer-nike-air-more-uptempo-pink-foam-dv1137-600-hype-1_360x.jpg', '$150', ['6', '7', '8', '9', '10'], 1)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE KOBE 8 PROTRO VENICE BEACH', 'Imagenes/kobe-8-protro-venice-beach-fq3548-001-hype-1.jpg', '$200', ['8', '9', '10', '11'], 2)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE AIR MAX PLUS 3 BLACK WOLF GREY', 'Imagenes/nike-air-max-plus-3-black-wolf-grey-ho23-cj9684-002-hype-1_360x.jpg', '$180', ['7', '8', '9', '10'], 3)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE AIR MAX PLUS DRIFT ALL DAY', 'Imagenes/nike-air-max-plus-drift-all-day-fd4290-003-hype-1_360x.jpg', '$140', ['7', '8', '9', '10', '11'], 4)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'JORDAN 2 RETO SAILL BLACK - MUJER', 'Imagenes/mujer-jordan-2-retro-sail-black-sp24-dx4400-100-hype-1_360x.jpg', '$180', ['6', '7', '8', '9', '10'], 5)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'JORDAN SPIZIKE LOW SAIL', 'Imagenes/jordan-spizike-low-sail-fq1759-100-hype-1.jpg', '$160', ['8', '9', '10'], 6)
 
+# Función para abrir una interfaz de detalle de producto en una ventana específica
+def abrir_ventana_detalle_en_ventana(ventana, nombre, imagen_path, precio, tallas, row):
+    # Mostrar imagen del zapato
+    imagen = Image.open(imagen_path)
+    imagen_resized = imagen.resize((200, 200))
+    imagen_tk = ImageTk.PhotoImage(imagen_resized)
+    etiqueta_imagen = Label(ventana, image=imagen_tk)
+    etiqueta_imagen.grid(row=row, column=0, padx=10, pady=10)
+
+    # Mostrar nombre del producto
+    etiqueta_nombre = Label(ventana, text=nombre, font=('Roboto', 14, 'bold'))
+    etiqueta_nombre.grid(row=row, column=1, padx=10, pady=10, sticky="w")
+
+    # Mostrar precio
+    etiqueta_precio = Label(ventana, text=f"Precio: {precio}", font=('Roboto', 12))
+    etiqueta_precio.grid(row=row, column=1, padx=10, pady=2, sticky="w")
+
+    # Mostrar tallas disponibles
+    etiqueta_tallas = Label(ventana, text="Tallas disponibles:", font=('Roboto', 12))
+    etiqueta_tallas.grid(row=row, column=1, padx=10, pady=2, sticky="w")
+    
+    for idx, talla in enumerate(tallas):
+        etiqueta_talla = Label(ventana, text=talla, font=('Roboto', 12))
+        etiqueta_talla.grid(row=row+idx, column=1, padx=10, pady=2, sticky="w")
+
+# Configurar el botón "Ver Todo" para abrir todas las ventanas de detalles en una sola ventana
+bvt = Button(canvas, text='Ver Todo', font=('Roboto', 14, 'bold'), bg='black', fg='white', activebackground='white', activeforeground='black', command=abrir_todas_ventanas_detalles)
+bvt.config(highlightthickness=0, relief="flat")
+canvas.create_window((620, 1500), window=bvt, anchor='nw')
+# Función para abrir todas las ventanas de detalles de productos en una sola ventana
+def abrir_todas_ventanas_detalles():
+    # Crear una nueva ventana para mostrar todas las interfaces de detalle
+    ventana_todas = Toplevel(ventana)
+    ventana_todas.title("Detalles de Productos")
+    ventana_todas.geometry("800x1000")
+
+    # Funciones para abrir cada interfaz de detalle y colocarlas en la nueva ventana
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE DUNK LOW YEAR OF THE DRAGON', 'Imagenes/ninos-nike-dunk-low-year-of-the-dragon-sp24-fz5528-101-hype-1_360x.jpg', '$120', ['7', '8', '9', '10', '11'], 0)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE MORE UPTEMPO PINK FOAM - MUJER', 'Imagenes/mujer-nike-air-more-uptempo-pink-foam-dv1137-600-hype-1_360x.jpg', '$150', ['6', '7', '8', '9', '10'], 1)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE KOBE 8 PROTRO VENICE BEACH', 'Imagenes/kobe-8-protro-venice-beach-fq3548-001-hype-1.jpg', '$200', ['8', '9', '10', '11'], 2)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE AIR MAX PLUS 3 BLACK WOLF GREY', 'Imagenes/nike-air-max-plus-3-black-wolf-grey-ho23-cj9684-002-hype-1_360x.jpg', '$180', ['7', '8', '9', '10'], 3)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'NIKE AIR MAX PLUS DRIFT ALL DAY', 'Imagenes/nike-air-max-plus-drift-all-day-fd4290-003-hype-1_360x.jpg', '$140', ['7', '8', '9', '10', '11'], 4)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'JORDAN 2 RETO SAILL BLACK - MUJER', 'Imagenes/mujer-jordan-2-retro-sail-black-sp24-dx4400-100-hype-1_360x.jpg', '$180', ['6', '7', '8', '9', '10'], 5)
+    abrir_ventana_detalle_en_ventana(ventana_todas, 'JORDAN SPIZIKE LOW SAIL', 'Imagenes/jordan-spizike-low-sail-fq1759-100-hype-1.jpg', '$160', ['8', '9', '10'], 6)
+
+# Función para abrir una interfaz de detalle de producto en una ventana específica
+def abrir_ventana_detalle_en_ventana(ventana, nombre, imagen_path, precio, tallas, row):
+    # Mostrar imagen del zapato
+    imagen = Image.open(imagen_path)
+    imagen_resized = imagen.resize((200, 200))
+    imagen_tk = ImageTk.PhotoImage(imagen_resized)
+    etiqueta_imagen = Label(ventana, image=imagen_tk)
+    etiqueta_imagen.grid(row=row, column=0, padx=10, pady=10)
+
+    # Mostrar nombre del producto
+    etiqueta_nombre = Label(ventana, text=nombre, font=('Roboto', 14, 'bold'))
+    etiqueta_nombre.grid(row=row, column=1, padx=10, pady=10, sticky="w")
+
+    # Mostrar precio
+    etiqueta_precio = Label(ventana, text=f"Precio: {precio}", font=('Roboto', 12))
+    etiqueta_precio.grid(row=row, column=1, padx=10, pady=2, sticky="w")
+
+    # Mostrar tallas disponibles
+    etiqueta_tallas = Label(ventana, text="Tallas disponibles:", font=('Roboto', 12))
+    etiqueta_tallas.grid(row=row+1, column=1, padx=10, pady=2, sticky="w")
+    
+    for idx, talla in enumerate(tallas):
+        etiqueta_talla = Label(ventana, text=talla, font=('Roboto', 12))
+        etiqueta_talla.grid(row=row+idx+2, column=1, padx=10, pady=2, sticky="w")
+
+    # Actualizar la referencia a la imagen para evitar que sea eliminada por el recolector de basura
+    etiqueta_imagen.image = imagen_tk
+
+# Configurar el botón "Ver Todo" para abrir todas las ventanas de detalles en una sola ventana
+bvt = Button(canvas, text='Ver Todo', font=('Roboto', 14, 'bold'), bg='black', fg='white', activebackground='white', activeforeground='black', command=abrir_todas_ventanas_detalles)
+bvt.config(highlightthickness=0, relief="flat")
+canvas.create_window((620, 1500), window=bvt, anchor='nw')
 
 # Configurar el tamaño del canvas
 frame.update_idletasks()
 canvas.config(scrollregion=canvas.bbox("all"))
 
-ventana.mainloop()
+# Funciones para el desplazamiento
+def on_mouse_wheel(event):
+    canvas.yview_scroll(int(-1*(event.delta/120)), "units")
 
+def on_key_press(event):
+    if event.keysym == 'Down':
+        canvas.yview_scroll(1, "units")
+    elif event.keysym == 'Up':
+        canvas.yview_scroll(-1, "units")
+
+canvas.bind_all("<MouseWheel>", on_mouse_wheel)
+canvas.bind_all("<KeyPress>", on_key_press)
+
+canvas.update_idletasks()
+
+# Configurar el tamaño del canvas para el scroll
+canvas.config(scrollregion=canvas.bbox("all"))
+
+
+ventana.mainloop()
 
 
