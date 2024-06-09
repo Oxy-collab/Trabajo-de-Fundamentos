@@ -65,8 +65,71 @@ boton_acc.place(relx=0.55, rely=0.45, anchor=tkinter.CENTER)
 boton_m = Button(master=frameop, text='MARCAS',**estilo_botones)
 boton_m.place(relx=0.65, rely=0.45, anchor=tkinter.CENTER)
 
-boton_login = Button(master=frameop, text='INICIAR SESION', **estilo_botones)
-boton_login.place(relx=0.90, rely=0.45, anchor=tkinter.CENTER)
+def mostrar_ventana_login():
+    ventana_login = Toplevel(ventana)
+    ventana_login.title("Chicago Athletics")
+    ventana_login.geometry("1366x768")
+    
+    frame = customtkinter.CTkFrame(master=ventana_login,
+                                   width=350,
+                                   height=300,
+                                   bg_color="green",
+                                   fg_color="grey",
+                                   corner_radius=10)
+    frame.pack(padx=20, pady=100)
+
+    label_titulo = customtkinter.CTkLabel(master=frame,
+                                          text='Iniciar Sesion',
+                                          width=120,
+                                          height=25,
+                                          fg_color=('gray'),
+                                          corner_radius=8)
+    label_titulo.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
+
+    id_ingresado = customtkinter.CTkEntry(master=frame, 
+                                          placeholder_text=('Usuario'),
+                                          width=200,
+                                          height=35,
+                                          border_width=2,
+                                          corner_radius=10)
+    id_ingresado.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
+
+    clave_ingresada = customtkinter.CTkEntry(master=frame,
+                                             placeholder_text='Contraseña',
+                                             width=200,
+                                             height=35,
+                                             show='*',
+                                             border_width=2,
+                                             corner_radius=10)
+    clave_ingresada.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
+
+    usuario = 'Chicago Athletics'
+    clave = '12345'
+
+    def boton_evento():
+        if id_ingresado.get() == usuario and clave_ingresada.get() == clave:
+            text_var.set('Ingresaste')
+        else:
+            text_var.set('Ingresaste mal el usuario o la clave')
+     
+
+
+    boton_login = customtkinter.CTkButton(master=frame, text='Iniciar Sesion', command=boton_evento)
+    boton_login.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
+
+    text_var = StringVar()
+
+    label = customtkinter.CTkLabel(master=frame,
+                                   textvariable=text_var,
+                                   width=120,
+                                   height=25,
+                                   fg_color=('black', 'gray'),
+                                   corner_radius=8)
+    label.place(relx=0.5, rely=0.95, anchor=tk.CENTER)
+
+boton_login = Button(master=frameop, text='INICIAR SESION', command=mostrar_ventana_login, **estilo_botones)
+boton_login.place(relx=0.90, rely=0.45, anchor=tk.CENTER)
+
 
 
 
